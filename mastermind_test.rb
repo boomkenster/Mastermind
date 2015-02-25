@@ -45,7 +45,7 @@ class MastermindTest < Minitest::Test
     skip
     mm = Mastermind.new
     mm.execute("rrrr")
-    assert_equal "RRRR",
+    assert_equal "RRRR"
   end
 
 end

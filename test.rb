@@ -1,13 +1,7 @@
+input = input.chars
+key= ["R", "Y", "B","G"]
 
-asdf = []
-secret = "RRGB"
-secret = secret.chars
-input = "FFRR"
 
-secret.count do |color|
-  input.chars.each do |c|
-   asdf << color == c
- end
+input.each do |letter|
+  key.include?(letter)
 end
-
-print asdf

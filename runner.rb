@@ -25,7 +25,7 @@ response.menu
  end
 
   print "> "
-  input = gets.chomp
+  input = gets.chomp.upcase
   guess = mastermind.execute(input)
   signal = guess[0]
   message = guess[1]

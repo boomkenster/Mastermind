@@ -4,11 +4,6 @@ require './mastermind_string_validator'
 require 'pry'
 
 class MastermindStringValidatorTest < Minitest::Test
-  # Check input against randomly generated color string
-  #  Random string: GGRR
-  #  Guess: YYYY - wrong guess
-  #  Guess: YYYR - wrong guess, 1 color in 1 position correct
-  #  Guess: RYYY - wrong guess, 1 color in 0 position correct
 
   def test_string_matches
     validator = MastermindStringValidator.new(input: 'YYYY')
@@ -53,5 +48,20 @@ class MastermindStringValidatorTest < Minitest::Test
 
     refute validator.guess?("XYYF")
     assert_equal 2, validator.position_count
+  end
+
+  #for each guess, increment count by one
+
+  def test_guess_count
+  validator = MastermindStringValidator.new(input: 'XXYX')
+
+  refute validator.guess?("XFFF")
+  assert_equal 1, validator.guess_count
+
+  refute validator.guess?("YYYF")
+  assert_equal 2, validator.guess_count
+
+  refute validator.guess?("XYYF")
+  assert_equal 3, validator.guess_count
   end
 end
