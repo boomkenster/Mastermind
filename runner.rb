@@ -8,18 +8,18 @@ response = Response.new
 response.greeting
 response.menu
 
- input = gets.chomp
+ input = gets.chomp.upcase
 
  continue = true
  while continue
- if input == "p"
+ if input == "P"
    response.play_game
-   mm = Mastermind.new
- elsif input == "c"
+   #mm = Mastermind.new
+ elsif input == "C"
    puts "Made a game with secret:#{mastermind.colors}"
- elsif input == "i"
+ elsif input == "I"
    response.info
- elsif input == "q"
+ elsif input == "Q"
    response.exit_game
    break
  end

@@ -20,13 +20,13 @@ class Mastermind
       [:exit_game, :next_time]
     when input.length > 4
       @counter += 1
+      puts "Number of guesses : #{@counter}"
       [:continue, :too_long]
     when input.length < 4
       @counter += 1
+      puts "Number of guesses : #{@counter}"
       [:continue, :too_short]
-    end
-
-    if @validator.guess?(input)
+    when @validator.guess?(input)
       @counter += 1
       [:exit_game,:won]
     else

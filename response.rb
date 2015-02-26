@@ -7,7 +7,16 @@ class Response
   # end
 
   def greeting
-    puts "Welcome to Mastermind"
+  print "\e[2J\e[f"
+
+  puts'  /\/\   __ _ ___| |_ ___ _ __ _ __ ___ (_)_ __   __| | '
+  puts' /    \ / _` / __| __/ _ \  __|  _ ` _ \| |  _ \ / _` | '
+  puts'/ /\/\ \ (_| \__ \ ||  __/ |  | | | | | | | | | | (_| | '
+  puts'\/    \/\__,_|___/\__\___|_|  |_| |_| |_|_|_| |_|\__,_| '
+
+  puts "\n"
+  puts "\n"
+  puts "\n"
   end
 
   def menu
@@ -15,7 +24,7 @@ class Response
   end
 
   def play_game
-    "What's your first guess?"
+    puts "AWESOME! What's your first guess?"
   end
 
   def info

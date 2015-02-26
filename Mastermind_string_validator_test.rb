@@ -52,16 +52,4 @@ class MastermindStringValidatorTest < Minitest::Test
 
   #for each guess, increment count by one
 
-  def test_guess_count
-  validator = MastermindStringValidator.new(input: 'XXYX')
-
-  refute validator.guess?("XFFF")
-  assert_equal 1, validator.guess_count
-
-  refute validator.guess?("YYYF")
-  assert_equal 2, validator.guess_count
-
-  refute validator.guess?("XYYF")
-  assert_equal 3, validator.guess_count
-  end
 end
