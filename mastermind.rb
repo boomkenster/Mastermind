@@ -15,6 +15,7 @@ class Mastermind
   end
 
   def execute(input)
+
     case
     when input == "Q"
       [:exit_game, :next_time]
@@ -31,10 +32,10 @@ class Mastermind
       [:exit_game,:won]
     else
       @counter += 1
-      puts "Correct Color Count: #{@validator.color_count}"
-      puts "Correct Position Count: #{@validator.position_count}"
-      puts "Number of guesses : #{@counter}"
-      [:continue,:guess_wrong]
+      puts "Number of Colors Correct: #{@validator.color_count}"
+      puts "Number of Positions Correct: #{@validator.position_count}"
+      puts "You've guessed #{@counter}"
+      [:guess_wrong, :continue]
     end
   end
 
