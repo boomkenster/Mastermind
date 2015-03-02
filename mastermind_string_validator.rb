@@ -5,10 +5,10 @@ class MastermindStringValidator
   end
 
   def guess?(guess)
+    @current_guess = guess
     if guess == @input
       true
     end
-    @current_guess = guess
   end
 
   def color_count
