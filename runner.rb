@@ -10,24 +10,23 @@ response.menu
 
 input = gets.chomp.upcase
 start_timer = Time.now
- continue = true
- while continue
- if input == "P"
-   response.play_game
- elsif input == "C"
-   puts "Made a game with secret:#{mastermind.colors}"
- elsif input == "I"
-   response.info
- elsif input == "Q"
-   response.exit_game
-   break
- end
+continue = true
+while continue
+  if input == "P"
+    response.play_game
+  elsif input == "C"
+    puts "Made a game with secret:#{mastermind.colors}"
+  elsif input == "I"
+    response.info
+  elsif input == "Q"
+    response.exit_game
+    break
+  end
 
   print "> "
   input = gets.chomp.upcase
   guess = mastermind.execute(input)
-  signal = guess[0]
-  message = guess[1]
+  signal, message = guess
   response.send(signal)
   response.send(message)
   if signal == :exit_game

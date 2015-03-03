@@ -11,6 +11,14 @@ class MastermindStringValidator
     end
   end
 
+  def guess_too_long?(input)
+    input.chars.length > 4
+  end
+
+  def guess_too_short?(input)
+    input.chars.length < 4
+  end
+
   def color_count
     guess_letters = @current_guess.chars
     input_array = @input.chars

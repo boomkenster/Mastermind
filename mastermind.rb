@@ -15,23 +15,19 @@ class Mastermind
   end
 
   def execute(input)
-
+    @counter += 1
     case
     when input == "Q"
       [:exit_game, :next_time]
-    when input.length > 4
-      @counter += 1
+    when @validator.guess_too_long?(input)
       puts "Number of guesses : #{@counter}"
       [:continue, :too_long]
-    when input.length < 4
-      @counter += 1
+    when @validator.guess_too_short?(input)
       puts "Number of guesses : #{@counter}"
       [:continue, :too_short]
     when @validator.guess?(input)
-      @counter += 1
       [:exit_game,:won]
     else
-      @counter += 1
       puts "Number of Colors Correct: #{@validator.color_count}"
       puts "Number of Positions Correct: #{@validator.position_count}"
       puts "You've guessed #{@counter}"

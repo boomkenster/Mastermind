@@ -17,8 +17,25 @@ class MastermindStringValidatorTest < Minitest::Test
     assert_equal 0, validator.position_count
   end
 
+  def test_guess_too_long
+    validator = MastermindStringValidator.new(input: 'XXXX')
+
+    assert_equal false, validator.guess_too_long?("FFFF")
+    assert_equal true, validator.guess_too_long?("AAAAA")
+  end
+
+  def test_guess_too_short
+    validator = MastermindStringValidator.new(input: 'XXYX')
+
+    assert_equal false, validator.guess_too_short?("FFFF")
+    assert_equal true, validator.guess_too_short?("AAA")
+  end
+
   def test_color_count
     validator = MastermindStringValidator.new(input: 'XXYX')
+
+    refute validator.guess?("FFFF")
+    assert_equal 0, validator.color_count
 
     refute validator.guess?("XFFF")
     assert_equal 1, validator.color_count
@@ -39,6 +56,9 @@ class MastermindStringValidatorTest < Minitest::Test
 
   def test_position_count
     validator = MastermindStringValidator.new(input: 'XXYX')
+
+    refute validator.guess?("FFFF")
+    assert_equal 0, validator.position_count
 
     refute validator.guess?("XFFF")
     assert_equal 1, validator.position_count
