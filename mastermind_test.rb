@@ -28,12 +28,7 @@ class MastermindTest < Minitest::Test
   def test_it_creates_random_colors
     mm = Mastermind.new
     pattern = mm.colors
-    assert 4 , pattern.chars.length
-  end
-
-  def test_when_less_than_4_message_appears
-    mm = Mastermind.new
-    assert_equal [:continue, :too_short], mm.execute("a")
+    assert 4 , pattern.length
   end
 
   def test_when_more_than_4_message_appears
@@ -45,7 +40,7 @@ class MastermindTest < Minitest::Test
     skip
     mm = Mastermind.new
     mm.execute("rrrr")
-    assert_equal "RRRR"
+    assert_equal "RRRR", mm.input
   end
 
 end
